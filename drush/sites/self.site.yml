@@ -1,0 +1,16 @@
+# Docs at https://github.com/drush-ops/drush/blob/master/examples/example.site.yml
+
+prod:
+  # This is the private network IP that only other vagrant VMs can see.
+  # Normally this would be a host name.
+  host: 192.168.101.10
+  user: vagrant
+  root: /home/vagrant/code/web
+  uri: http://drupal.local
+  ssh:
+    # Disable host key checking as vagrant creates new keys on boot. Don't do
+    # this for real servers!
+    options: '-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
+  paths:
+    # An alternative to this is to install drush-launcher globally.
+    drush-script: /home/vagrant/code/vendor/bin/drush
